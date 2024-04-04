@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<style>
+    body{
+        background: #000;
+    }
+    .container{
+        width:390px;
+        height: 550px;
+        background: white;
+        border-radius: 5%;
+        border:5px solid white;
+        margin: 120px 38% ;
+        box-shadow:inset 0px 0px 5px 6px  rgb(21, 149, 174),5px 5px 15px 9px rgb(15, 148, 237);
+      
+
+    }
+    .container:hover{
+        box-shadow:inset 0px 0px 5px 6px  rgb(214, 10, 149),5px 5px 15px 9px rgb(242, 6, 198);
+       
+
+    }
+    #cal{
+        width:70%;
+        height: 80px;
+        border-radius: 2cqi;
+        margin-left: 25px;
+        margin-top: 32px;
+        background: #fff;
+        font-size: 2rem;
+        border: 2px solid black;
+        padding: 0 25px;
+        box-shadow: inset 15px 18px  9px rgb(170, 161, 161), inset 5px 5px 15px rgb(170, 161, 161);
+       
+        
+    } 
+    #btn{
+       
+        height: 50px;
+        width:55px;
+        border-radius:50%;
+        margin-left: 28px;
+        margin-top: 30px;
+        font-size: 1.3rem;
+        box-shadow:2px 3px 2px rgb(14, 13, 13) ;
+
+    }
+    #btn1{
+        border:0;
+        margin-left:29px;
+        box-shadow:5px 5px 5px rgb(14, 13, 13) ;
+        border-radius:50px;
+        font-size: 1.3rem;
+        width:145px;
+        height:50px;
+    }
+    #btn:active {
+      background: rgb(61, 41, 41);
+      box-shadow:inset -4px -5px 9px grey, inset 5px 6px 9px grey ;
+      transition:all 2s;
+
+    }
+    #btn1:active {
+      background: rgb(61, 41, 41);
+      box-shadow:inset -4px -5px 9px grey, inset 5px 6px 9px grey ;
+      transition:all 2s;
+
+    }
+    h1{
+        text-align: center;
+        text-decoration: underline;
+        color:white;
+       box-shadow: 10px 5px 10px white;
+       animation: me 2s infinite;
+     
+    }
+    @keyframes me{
+        0%{
+            color: aqua;
+
+        }
+        100%{
+            color: red;
+            
+        }
+    }
+
+   
+
+</style>
+<body>
+   
+    <h1>Calculator</h1>
+    <div class="container">
+     
+        <input type="text" id="cal">
+        <br><br>
+     
+     <input type="button" id="btn" value="AC" onclick="allClear()">
+     <input type="button" id="btn" value="DEL" onclick="del()">
+     <input type="button" id="btn" value="%" onclick="addToDisplay('%')">
+     <input type="button" id="btn" value="/"  onclick="addToDisplay('/')">
+     <br>
+     <input type="button" id="btn" value="7"  onclick="addToDisplay('7')">
+     <input type="button" id="btn" value="8"  onclick="addToDisplay('8')">
+     <input type="button" id="btn" value="9"  onclick="addToDisplay('9')">
+     <input type="button" id="btn" value="*"  onclick="addToDisplay('*')">
+     <br>
+     <input type="button" id="btn" value="4"  onclick="addToDisplay('4')">
+     <input type="button" id="btn" value="5"  onclick="addToDisplay('5')">
+     <input type="button" id="btn" value="6"  onclick="addToDisplay('6')">
+     <input type="button" id="btn" value="-"  onclick="addToDisplay('-')">
+     <br>
+     <input type="button" id="btn" value="1" onclick="addToDisplay('1')">
+     <input type="button" id="btn" value="2"  onclick="addToDisplay('2')">
+     <input type="button" id="btn" value="3"  onclick="addToDisplay('3')">
+     <input type="button" id="btn" value="+"  onclick="addToDisplay('+')">
+     <br>
+     <input type="button" id="btn" value="."  onclick="addToDisplay('.')">
+     <input type="button" id="btn" value="0"  onclick="addToDisplay('0')">
+     <input type="button" id="btn1" value="="  onclick="equal('=')">
+</div>
+
+<script>
+    function addToDisplay(value){
+        document.getElementById('cal').value+=value;
+
+    }function del(){
+        var display=document.getElementById('cal');
+        display.value=display.value.slice(0,-1);
+    }
+    function allClear() {
+            document.getElementById('cal').value = ' ';
+    }
+
+        function equal() {
+            try {
+                document.getElementById('cal').value = eval(document.getElementById('cal').value);
+            } catch (error) {
+                document.getElementById('cal').value = 'Error';
+            }
+        }
+
+
+</script>
+    
+</body>
+</html>
